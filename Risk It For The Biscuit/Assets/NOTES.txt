@@ -1,0 +1,13 @@
+1st idea:
+- ambitious chef wants to make the best biscuit ever
+- chef is also an experienced combatant and must fight monsters
+- looting monster remains will be used as ingredients to make the biscuit
+- monster difficulty scales higher as the chef progresses by killing more monsters
+- chef can stop fighting anytime in order to make the biscuit with the looted remains
+- basically the game is roguelike shoot em up (Vampire Survivors)
+
+2nd idea:
+- kiddie auction??
+
+3rd idea:
+- "fortinaiti i la babaji?" choices??
