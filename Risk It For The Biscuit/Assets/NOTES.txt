@@ -11,3 +11,16 @@
 
 3rd idea:
 - "fortinaiti i la babaji?" choices??
+
+4th idea:
+- adventurer finds himself trapped in a dark cave
+- mining helmet or torch as source of light but without weapons
+- he must find his way out while avoiding monsters harming him
+- movement speed is slow
+- biscuits can boost his speed with stacks and can be found throughout random places in the cave
+- i've yet to have experience with developing light horror or suspense/thriller games
+
+5th idea:
+- 9 "cards" of good or bad biscuits
+- player must carefully pick which card is good or bad
+- completely RNG
