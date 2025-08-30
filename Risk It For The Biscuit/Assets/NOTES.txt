@@ -1,3 +1,10 @@
+2025-08-30:
+- redesigns with sprites are working in progress
+- when right-clicking, whole packet must be removed
+- add animated trash can sprite when removing packet
+- create table background sprite design
+- create menu screen and complete game loop
+
 1st idea:
 - ambitious chef wants to make the best biscuit ever
 - chef is also an experienced combatant and must fight monsters

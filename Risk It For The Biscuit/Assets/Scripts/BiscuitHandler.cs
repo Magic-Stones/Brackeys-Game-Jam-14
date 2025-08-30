@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CardHandler : MonoBehaviour
+public class BiscuitHandler : MonoBehaviour
 {
-    [SerializeField] List<Transform> cards = new List<Transform>();
+    [SerializeField] List<Transform> packets = new List<Transform>();
     [SerializeField] GameObject pfGoodBiscuit;
     [SerializeField] GameObject pfBadBiscuit;
     public GameObject GetPfGoodBiscuit { get => pfGoodBiscuit; }
@@ -11,7 +11,7 @@ public class CardHandler : MonoBehaviour
 
     void Awake()
     {
-        foreach (Transform card in transform) cards.Add(card);
+        foreach (Transform packet in transform) packets.Add(packet);
     }
 
     // Start is called before the first frame update
@@ -20,7 +20,7 @@ public class CardHandler : MonoBehaviour
         pfGoodBiscuit.SetActive(false);
         pfBadBiscuit.SetActive(false);
 
-        BiscuitCard();
+        SetBiscuitType();
     }
 
     // Update is called once per frame
@@ -29,11 +29,11 @@ public class CardHandler : MonoBehaviour
         
     }
 
-    private void BiscuitCard()
+    private void SetBiscuitType()
     {
         if (!pfGoodBiscuit || !pfBadBiscuit) return;
 
-        foreach (Transform card in cards)
+        foreach (Transform card in packets)
         {
             Transform cardInScene = GameObject.Find(card.name).transform;
             Transform badBiscuit;
