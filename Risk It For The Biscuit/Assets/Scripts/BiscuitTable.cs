@@ -1,9 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BiscuitHandler : MonoBehaviour
+public class BiscuitTable : MonoBehaviour
 {
+    [SerializeField] List<Transform> plates = new List<Transform>();
     [SerializeField] List<Transform> packets = new List<Transform>();
+    [SerializeField] GameObject pfBiscuitPacket;
     [SerializeField] GameObject pfGoodBiscuit;
     [SerializeField] GameObject pfBadBiscuit;
     public GameObject GetPfGoodBiscuit { get => pfGoodBiscuit; }
@@ -11,7 +13,20 @@ public class BiscuitHandler : MonoBehaviour
 
     void Awake()
     {
-        foreach (Transform packet in transform) packets.Add(packet);
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            plates.Add(transform.GetChild(i));
+
+            int packetNumber = i + 1;
+            Transform biscuitPacket = Instantiate(pfBiscuitPacket, plates[i].position, Quaternion.identity).transform;
+            biscuitPacket.name = $"{pfBiscuitPacket.name} ({packetNumber})";
+            packets.Add(biscuitPacket);
+        }
+
+        foreach (Transform packet in packets)
+        {
+            packet.SetParent(transform);
+        }
     }
 
     // Start is called before the first frame update
@@ -33,21 +48,21 @@ public class BiscuitHandler : MonoBehaviour
     {
         if (!pfGoodBiscuit || !pfBadBiscuit) return;
 
-        foreach (Transform card in packets)
+        foreach (Transform packet in packets)
         {
-            Transform cardInScene = GameObject.Find(card.name).transform;
+            Transform packetInScene = GameObject.Find(packet.name).transform;
             Transform badBiscuit;
             Transform goodBiscuit;
 
             int chance = Random.Range(0, 2);
             if (chance == 0)
             {
-                badBiscuit = Instantiate(pfBadBiscuit, cardInScene).transform;
+                badBiscuit = Instantiate(pfBadBiscuit, packetInScene).transform;
                 badBiscuit.name = pfBadBiscuit.name;
             }
             else
             {
-                goodBiscuit = Instantiate(pfGoodBiscuit, cardInScene).transform;
+                goodBiscuit = Instantiate(pfGoodBiscuit, packetInScene).transform;
                 goodBiscuit.name = pfGoodBiscuit.name;
             }
         }

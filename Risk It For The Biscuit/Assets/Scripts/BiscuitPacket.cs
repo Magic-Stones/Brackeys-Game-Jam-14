@@ -1,18 +1,19 @@
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 public class BiscuitPacket : MonoBehaviour
 {
     bool isInteracted = false;
 
     Sprite sprite;
-    BiscuitHandler handler;
     ScoreSystem scoreSystem;
+    GameLoop gameLoop;
 
     void Awake()
     {
         sprite = GetComponent<SpriteRenderer>().sprite;
-        handler = GetComponentInParent<BiscuitHandler>();
-        scoreSystem = GameObject.Find("UI Manager").GetComponent<ScoreSystem>();
+        scoreSystem = GameObject.Find("Game Manager").GetComponent<ScoreSystem>();
+        gameLoop = GameObject.Find("Game Manager").GetComponent<GameLoop>();
     }
 
     // Start is called before the first frame update
@@ -32,22 +33,37 @@ public class BiscuitPacket : MonoBehaviour
         if (isInteracted) return;
 
         GameObject biscuit = transform.GetChild(0).gameObject;
-        if (!biscuit.activeSelf) biscuit.SetActive(true);
+        BiscuitTable table = GetComponentInParent<BiscuitTable>();
 
-        if (biscuit.name.Equals(handler.GetPfGoodBiscuit.name))
+        if (biscuit.name.Equals(table.GetPfGoodBiscuit.name))
         {
             if (mouseButtonIndex == 0)
+            {
+                if (!biscuit.activeSelf) biscuit.SetActive(true);
                 scoreSystem.ChangeScore(1);
-            else scoreSystem.ChangeScore(-1);
+            }
+            else
+            {
+                gameObject.SetActive(false);
+                scoreSystem.ChangeScore(-1);
+            }
         }
         else
         {
             if (mouseButtonIndex == 1)
+            {
+                gameObject.SetActive(false);
                 scoreSystem.ChangeScore(1);
-            else scoreSystem.ChangeScore(-1);
+            }
+            else
+            {
+                if (!biscuit.activeSelf) biscuit.SetActive(true);
+                scoreSystem.ChangeScore(-1);
+            }
         }
 
         isInteracted = true;
+        gameLoop.InteractPlate();
         GetComponent<SpriteRenderer>().sprite = null;
     }
 }
