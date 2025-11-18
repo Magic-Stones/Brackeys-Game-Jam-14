@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameLoop : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     [SerializeField] int platesInteracted = 0;
     [SerializeField] GameObject pnlGameOver;
@@ -33,10 +33,15 @@ public class GameLoop : MonoBehaviour
         int stopGameCondition = 9;
         if (platesInteracted == stopGameCondition)
         {
-            pnlGameOver.SetActive(true);
-            TMP_Text m_TotalScoreUI = GameObject.Find("Total Score").GetComponent<TMP_Text>();
-            m_TotalScoreUI.text = scoreSystem.GetScore.ToString();
+            Invoke("GameOver", 3f);
         }
+    }
+
+    private void GameOver()
+    {
+        pnlGameOver.SetActive(true);
+        TMP_Text m_TotalScoreUI = GameObject.Find("Total Score").GetComponent<TMP_Text>();
+        m_TotalScoreUI.text = scoreSystem.GetScore.ToString();
     }
 
     public void TryAgain()

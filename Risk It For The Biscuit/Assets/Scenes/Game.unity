@@ -330,7 +330,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &255848558
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1577,8 +1577,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1287876418}
-  - component: {fileID: 1287876417}
   - component: {fileID: 1287876419}
+  - component: {fileID: 1287876417}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -1622,7 +1622,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1287876416}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84a54ae5991472d42bbca42d3679893e, type: 3}
+  m_Script: {fileID: 11500000, guid: 8bbeedf97f595c24886c53d9840bac26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   platesInteracted: 0
@@ -2069,7 +2069,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1287876419}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameLoop, Assembly-CSharp
         m_MethodName: TryAgain
         m_Mode: 1
@@ -2633,7 +2633,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1287876419}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameLoop, Assembly-CSharp
         m_MethodName: MainMenu
         m_Mode: 1

@@ -7,13 +7,13 @@ public class BiscuitPacket : MonoBehaviour
 
     Sprite sprite;
     ScoreSystem scoreSystem;
-    GameLoop gameLoop;
+    GameManager gameLoop;
 
     void Awake()
     {
         sprite = GetComponent<SpriteRenderer>().sprite;
         scoreSystem = GameObject.Find("Game Manager").GetComponent<ScoreSystem>();
-        gameLoop = GameObject.Find("Game Manager").GetComponent<GameLoop>();
+        gameLoop = GameObject.Find("Game Manager").GetComponent<GameManager>();
     }
 
     // Start is called before the first frame update
